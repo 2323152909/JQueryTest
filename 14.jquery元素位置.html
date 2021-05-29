@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #father{
+            width: 400px;
+            height: 400px;
+            background-color: blue;
+            margin: 100px 200px;
+            position: relative;
+        }
+        #son{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 10px;
+            top: 20px;
+        }
+    </style>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div id="father">
+        <div id="son"></div>
+    </div>
+    <script>
+        $(function(){
+            // 1.获取设置距离文档的位置（偏移） offset()
+            console.log($("#son").offset());
+            console.log($("#son").offset().top);
+            // 修改子元素的偏移量
+            // $("#son").offset({
+            //     top:20,
+            //     leftt:500
+            // });
+            // 2.获取距离带有定位父级元素位置（偏移） position 如果没有带有定位的父级，则以文档为准
+            // 这个方法只能获取，不能设置偏移
+            console.log($("#son").position());
+        })
+    </script>
+</body>
+</html>

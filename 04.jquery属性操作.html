@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div>
+        <a href="http://www.baidu.com" value="超链接1" data-index="2">
+            <span>超链接</span>
+        </a>
+        <input type="checkbox" name="name" id="name" value="廖浩东" checked>
+    </div>
+    <script>
+        $(function(){
+            // 1.获取属性值：element.prop("属性名")
+            $("a").prop("href");
+            console.log($("a").prop("href"));
+           
+            // 2.更改属性值：element.prop("属性名"："属性值")
+            $("input").prop({
+                name:"lhd",
+                value:"皮彩艳"
+            });
+            $("input").change(function(){
+                console.log($("input").prop("checked"));
+            });
+             //3.不是标签本来就有的属性，而是自定义的属性，用   element.attr("属性名") 获取 
+             console.log($("a").attr("value"));
+             console.log($("a").attr("data-index"));
+            //  4.缓存数据：data() 这个里面的数据是存放在元素的内存里面的
+            $("span").data("name","lhd")
+            console.log($("span").data("name"));
+            //  这个方法获取data-index h5自定义属性 第一个 不用写data- 并且返回的是数字型
+            console.log($("a").data("index"));
+        })
+    </script>
+</body>
+</html>

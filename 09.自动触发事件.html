@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div>我是div</div>
+    <input type="text">
+    <script>
+        $(function(){
+            $("div").on("click",function(){
+                alert("点击事件触发成功！");
+            });
+            // 自动触发事件
+            // 1.元素.事件() 方式自动触发 会触发元素默认行为
+            // $("div").click();
+
+            // 2.元素.trigger("事件")       会触发元素默认行为
+            // $("div").trigger("click");
+            
+            // 3.元素.triggerHandle("事件")     就是不会触发元素的默认行为
+            // $("div").triggerHandler("click");
+            $("input").on("focus",function(){
+                $(this).val("你好吗？");
+            });
+            $("input").trigger("focus");
+            // $("input").triggerHandler("focus");
+        })
+    </script>
+</body>
+</html>

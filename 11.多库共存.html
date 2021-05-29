@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <span></span>
+    <script>
+        $(function(){
+            function $(ele){
+                return document.querySelector(ele);
+            };
+            console.log($("div"));
+            // $.each(); //$ 与我们自己定义的函数名字冲突，所以不能使用$符号
+            // 1.如果$ 符号冲突，我们可以使用jQuery 来代替$ 符号
+            jQuery.each();
+            // 2.让jQuery 释放对$ 符号的控制权，让用户自己决定
+            var suibian = jQuery.noConflict();
+            console.log(suibian("span"));
+        })
+    </script>
+</body>
+</html>

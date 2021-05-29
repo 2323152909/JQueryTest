@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            margin: 100px auto;
+            height: 100vh;
+            width: 500px;
+            /* align-items: center; */
+            /* text-align: center; */
+        }
+        #head{
+            background-color: gray;
+            border: 2px solid black;
+        }
+        ul,li{
+            align-items: center;
+            list-style: none;
+            display: inline-block;
+            font-size: large;
+            padding: 5px;
+        }
+        .item{
+            height: 400px;
+            display: none;
+            border: 3px solid black;
+            text-align: center;
+        }
+        .current{
+            background-color: red;
+        }
+    </style>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div id="box">
+        <div id="head">
+            <ul>
+                <li>商品使用</li>
+                <li>商城详情</li>
+                <li>使用说明</li>
+                <li>关于我们</li>
+            </ul>
+        </div>
+        <div id="body">
+            <div class="item" style="display: block;">商品使用模块</div>
+            <div class="item">商城说明</div>
+            <div class="item">使用说明</div>
+            <div class="item">关于我们</div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            // 隐私迭代，给每个li标签添加一个单击响应函数
+            $("ul li").click(function(){
+                // 链式编程，为当前li添加一个current类，为他的兄弟标签移除current类
+                $(this).addClass("current").siblings().removeClass("current");
+                // 获取当前点击的li的索引
+                index = $(this).index();
+                // 为li对应的div模块显示出来，让他的兄弟模块隐藏起来
+                $(".item").eq(index).show().siblings().hide();
+            })
+        })
+    </script>
+</body>
+</html>

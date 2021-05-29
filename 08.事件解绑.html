@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+    </style>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div></div>
+    <ul>
+        <li>我是ul下面的小li</li>
+        <li>我是ul下面的小li</li>
+        <li>我是ul下面的小li</li>
+    </ul>
+    <p>我是p标签</p>
+    <script>
+        // var div = document.getElementsByTagName("div")[0];
+        // div.ondblclick = function(){
+        //     div.style.backgroundColor = "yellow";
+        // }
+        // 设置程序的主入口
+        $(function(){
+            // 为div标签绑定三个事件
+            $("div").on({
+                click(){
+                    $(this).css("backgroundColor","blue");
+                },
+                dblclick(){
+                    $(this).css("backgroundColor","red")
+                },
+                mouseover(){
+                    $(this).css({
+                        width:200,
+                        height:200
+                    });
+                },
+                mouseout(){
+                    $(this).css({
+                        width:100,
+                        height:100
+                    })
+                }
+            });
+            // 通过 on() 进行事件委托
+            $("ul").on("click","li",function(){
+                alert("你好，我是小li，你点击了我一下");
+            });
+            // 1.事件解绑 off()
+            // (1).通过off()方法解绑某个元素的单个事件
+            $("div").off("click");
+            // (2).通过off() 方法解绑事件委托函数
+            $("ul").off("click","li");
+            // 2. 通过one() 对元素绑定事件，但是他绑定的事件只能触发一次
+            $("p").one("click",function(){
+                alert("这是对我的第一次点击");
+            })
+        })
+    </script>
+</body>
+</html>

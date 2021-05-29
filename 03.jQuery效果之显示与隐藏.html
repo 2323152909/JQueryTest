@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            height: 200px;
+            width: 150px;
+            background-color: pink;
+        }
+    </style>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div>
+        <button>显示</button>
+        <button>隐藏</button>
+        <button>切换</button>
+        <div id="box"></div>
+    </div>
+    <script>
+        $(function(){
+            $("button").eq(0).click(function(){
+                $("#box").show(function(){
+                    console.log("显示成功");
+                })
+            });
+            $("button").eq(1).click(function(){
+                $("#box").hide(function(){
+                    console.log("隐藏成功");
+                })
+            });
+            $("button").eq(2).click(function(){
+                $("#box").toggle(function(){
+                    console.log("切换成功");
+                })
+            });
+        })
+    </script>
+</body>
+</html>

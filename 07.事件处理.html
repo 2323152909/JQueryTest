@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(64, 37, 114);
+            border: 1px solid rgb(132, 202, 125);
+        }
+        .current{
+            background-color: rgb(17, 186, 192);
+        }
+    </style>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div></div>
+    <ul>
+        <li>第一行</li>
+        <li>第二行</li>
+    </ul>
+    <script>
+        $(function(){
+            // 1.绑定单个事件
+            // $("div").click(function(){
+            //     $(this).css("backgroundColor","blue");
+            // });
+            // $("div").mouseout(function(){
+            //     $(this).css("backgroundColor","yellow");
+            // });
+            // 2.同时绑定多个事件 .on()
+            // $("div").on({
+            //     click(){
+            //         $(this).css("backgroundColor","blue");
+            //     },
+            //     mouseover(){
+            //         $(this).css("backgroundColor","red");
+            //     },
+            //     mouseout(){
+            //         $(this).css("backgroundColor","yellow");
+            //     }
+            // })
+            $("div").on("mouseover mouseout",function(){
+                $(this).toggleClass("current");
+            });
+            // (2) on可以实现事件委托（委派）
+            // $("ul li").click(function(){});
+            // click事件是绑定在ul身上的，但是触发对象是 ul 里面的 li
+            $("ul").on("click","li",function(){
+                alert("触发");
+            })
+        })
+    </script>
+</body>
+</html>
